@@ -30,7 +30,7 @@ function Hero() {
       </p>
 
       <a
-          href="/resume.pdf"
+          href="/Wilson_Resume.pdf"
           download
           className="btn"
       >
