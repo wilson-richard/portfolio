@@ -4,6 +4,7 @@ import {
   FaReact,
   FaNodeJs,
   FaJava,
+  FaPython,
 } from "react-icons/fa";
 
 import {
@@ -25,6 +26,7 @@ function Skills() {
     { name: "SQL", icon: <SiMysql color="#00758F" size={45} /> },
     { name: "HTML", icon: <FaHtml5 color="#E34F26" size={45} /> },
     { name: "CSS", icon: <FaCss3Alt color="#1572B6" size={45} /> },
+    { name: "Python", icon: <FaPython color="#c14925" size={45} /> },
   ];
 
   return (
