@@ -1,0 +1,31 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full Page */
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Body */
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #0f172a;
+}
+
+/* Root */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
