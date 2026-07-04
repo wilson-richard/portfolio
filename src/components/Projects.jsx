@@ -39,18 +39,17 @@ function Projects() {
           <h3>NexEvent – College Event Management Hub</h3>
 
           <p>
-            Developed a responsive Single-Page Application (SPA) for managing
-            college events, registrations, and coordinator workflows.
-            Implemented role-based access, interactive dashboards, and local
-            storage for persistent data using HTML, CSS, and JavaScript.
+           Created a responsive college event management SPA using vibe coding (AI prompt engineering) to accelerate development. Features include role-based access, interactive dashboards, and local storage.
           </p>
 
           <p>
-            <strong>Tech Stack:</strong> React.js | CSS | JavaScript
+            <strong>Development:</strong> Vibe Coding (Prompt Engineering with Antigravity AI)
           </p>
 
           <div className="project-btn">
-            <Button variant="primary">
+            <Button variant="primary"
+            href="https://wilson-richard-event-management.vercel.app"
+            target="_blank">
               View Project
             </Button>
           </div>
@@ -72,7 +71,9 @@ function Projects() {
           </p>
 
           <div className="project-btn">
-            <Button variant="primary">
+            <Button variant="primary"
+              href="https://wilson-richard-coffeeshop.vercel.app/"
+              target="_blank">
               View Project
             </Button>
           </div>
