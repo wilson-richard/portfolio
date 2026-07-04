@@ -5,15 +5,15 @@ function Achievements() {
 
   const achievements = [
     {
-      title: "🥇 Certificate of Merit",
+      title: "Certificate of Merit",
       image: "/cert-1.jpeg",
     },
     {
-      title: " 🎯 React Workshop",
+      title: "React Workshop",
       image: "/cert-2.jpeg",
     },
     {
-      title: " 🎓 Degree Certificate",
+      title: "Degree Certificate",
       image: "/cert-3.jpeg",
     },
   ];
@@ -24,12 +24,13 @@ function Achievements() {
 
       <div className="marquee">
         <div className="marquee-content">
-          {achievements.map((item, index) => (
+          {[...achievements, ...achievements].map((item, index) => (
             <span
               key={index}
               onClick={() => setSelected(item.image)}
             >
-              {item.title}
+              <img src={item.image} alt={item.title} />
+              <p>{item.title}</p> 
             </span>
           ))}
         </div>
@@ -37,12 +38,20 @@ function Achievements() {
 
       {selected && (
         <div className="popup" onClick={() => setSelected(null)}>
-          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close" onClick={() => setSelected(null)}> ✖ </button>
+          <div
+            className="popup-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="close"
+              onClick={() => setSelected(null)}
+            >
+              ✖
+            </button>
 
-            <img src={selected} alt="certificate" />
+            <img src={selected} alt="Certificate" />
           </div>
-        </div> 
+        </div>
       )}
     </section>
   );

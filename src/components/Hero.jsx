@@ -1,7 +1,7 @@
 import { Typewriter } from "react-simple-typewriter";
 function Hero() {
   return (
-    <section className="hero">
+    <section  id="home" className="hero">
 
       <img
         src="/profile.jpg"

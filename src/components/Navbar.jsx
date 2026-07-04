@@ -3,10 +3,11 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 export default function NavigationBar() {
   return (
     <Navbar
-      expand="lg"
-      className="navbar"
       bg="dark"
-      data-bs-theme="dark"
+      variant="dark"
+      expand="lg"
+      fixed="top"
+      className="navbar"
     >
       <Container>
         <Navbar.Brand href="#">
@@ -17,6 +18,8 @@ export default function NavigationBar() {
 
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#achievements">Achievements</Nav.Link>    
             <Nav.Link href="#about">About</Nav.Link>
             <Nav.Link href="#skills">Skills</Nav.Link>
             <Nav.Link href="#projects">Projects</Nav.Link>
