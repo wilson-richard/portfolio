@@ -1,3 +1,4 @@
+import Button from 'react-bootstrap/Button';
 import { Typewriter } from "react-simple-typewriter";
 function Hero() {
   return (
@@ -28,14 +29,10 @@ function Hero() {
       <p>
         Passionate Full Stack Developer specializing in the MERN stack. I build responsive, scalable, and user-friendly web applications with clean code and modern technologies.
       </p>
-
-      <a
-          href="/Wilson_Resume.pdf"
-          download
-          className="btn"
-      >
+      
+      <Button variant="primary" href="/Wilson_Resume.pdf"  className="btn" download>
         📄 Download Resume
-      </a>
+      </Button>
 
     </section>
   );

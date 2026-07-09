@@ -25,8 +25,7 @@ function Projects() {
           <div className="project-btn">
             <Button
               variant="primary"
-              href="https://wilson-richard-portfolio.vercel.app"
-              target="_blank"
+              onClick={() => alert("You are currently viewing this Portfolio website.")}
             >
               View Project
             </Button>
