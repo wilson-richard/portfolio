@@ -1,4 +1,4 @@
-/* Google Font */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
@@ -12,6 +12,10 @@ body{
     font-family:'Poppins',sans-serif;
     background:#0f172a;
     color:#fff;
+}
+
+hr{
+    display:none;
 }
 
 /* ================= NAVBAR ================= */
@@ -105,9 +109,11 @@ body{
 
 /* ================= SECTION ================= */
 
+
 section{
      padding:80px 12%;
      background:#0f172a;
+     margin-bottom:-1px; 
 }
 
 section h2{
@@ -271,10 +277,17 @@ section h2::after{
 /* ================= FOOTER ================= */
 
 footer{
-    background:#0f172a;
-    color:#cbd5e1;
+    background:#111827;
+    color:#94a3b8;
     text-align:center;
     padding:25px;
+    margin-top:-1px;
+}
+
+footer p{
+    margin:0;
+    font-size:14px;
+    letter-spacing:.5px;
 }
 
 /* ================= SCROLL BAR ================= */
@@ -457,6 +470,7 @@ footer{
 section{
     padding:70px 8%;
 }
+
 
 #about,
 #skills,
