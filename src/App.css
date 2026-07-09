@@ -107,7 +107,7 @@ body{
 
 section{
      padding:80px 12%;
-    
+     background:#0f172a;
 }
 
 section h2{
@@ -131,7 +131,7 @@ section h2::after{
 /* ================= ABOUT ================= */
 
 #about{
-    background:#111827;
+    background:#0f172a;
 }
 
 #about p{
@@ -147,7 +147,6 @@ section h2::after{
 
 #skills{
     background:#0f172a;
-    
     text-align:center;
     line-height:1.5;
     color:#d1d5db;
@@ -187,7 +186,7 @@ section h2::after{
 /* ================= PROJECTS ================= */
 
 #projects {
-    background: #111827;
+    background: #0f172a;
     padding: 90px 12%;
 }
 
@@ -272,11 +271,10 @@ section h2::after{
 /* ================= FOOTER ================= */
 
 footer{
-    background:linear-gradient(90deg,#111827,#1e293b);
+    background:#0f172a;
     color:#cbd5e1;
     text-align:center;
     padding:25px;
-    border-top:1px solid rgba(255,255,255,.08);
 }
 
 /* ================= SCROLL BAR ================= */
@@ -451,16 +449,26 @@ footer{
 
 }
 
-
-@media (max-width:768px){
+/* =========================================================
+   MOBILE + "Desktop site" mode on mobile
+========================================================= */
+@media (max-width:768px), (pointer:coarse){
 
 section{
     padding:70px 8%;
 }
 
+#about,
+#skills,
+#projects,
+#achievements,
+#contact{
+    padding:70px 8%;
+}
+
 .hero{
     min-height:auto;
-    padding:110px 20px 70px;
+    padding:110px 20px 50px;
 }
 
 .profile{
@@ -480,6 +488,7 @@ section{
     width:100%;
     font-size:16px;
     line-height:1.8;
+    margin-bottom:20px;
 }
 
 .card{
