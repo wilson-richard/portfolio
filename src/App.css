@@ -44,7 +44,7 @@ hr{
 }
 
 .nav-link:hover{
-    color:#8b5cf6 !important;
+    color:#38bdf8 !important;
 }
 
 
@@ -128,7 +128,7 @@ section h2::after{
     content:"";
     width:70px;
     height:4px;
-    background:#8b5cf6;
+    background:#38bdf8;
     display:block;
     margin:12px auto;
     border-radius:20px;
@@ -177,7 +177,7 @@ section h2::after{
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 18px 40px rgba(139,92,246,.35);
+    box-shadow:0 18px 40px rgba(59, 130, 246, 0.349);
 }
 
 .skill-icon{
@@ -227,7 +227,7 @@ section h2::after{
 
 .project:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 45px rgba(59,130,246,.35);
+    box-shadow: 0 20px 45px rgba(59, 130, 246, 0.349);
 }
 
 .project h3 {
@@ -248,6 +248,7 @@ section h2::after{
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    
 }
 
 .project-btn .btn {
