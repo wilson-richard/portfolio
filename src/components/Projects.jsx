@@ -38,7 +38,7 @@ function Projects() {
           <h3>NexEvent – College Event Management Hub</h3>
 
           <p>
-           Created a responsive college event management SPA using vibe coding (AI prompt engineering) to accelerate development. Features include role-based access, interactive dashboards, and local storage.
+           Created a responsive college event management SPA using vibe coding (AI prompt engineering) to accelerate development. Features include role-based access, interactive dashboards.
           </p>
 
           <p>
