@@ -5,17 +5,18 @@ function Hero() {
     <section  id="home" className="hero">
 
       <img
-        src="/profile.jpg"
+        src="/profile.png"
         alt="image not found"
         className="profile"
       />
 
-      <h1>Hi, I'm Wilson 👋</h1>
+      <h1>Hi, I'm Wilson </h1>
 
      <h3>
   <Typewriter
     words={[
-      "Full Stack Developer"
+      "Full Stack Developer",
+      "Programmer"
     ]}
     loop={0}
     cursor
@@ -27,7 +28,8 @@ function Hero() {
 </h3>
 
       <p>
-        Passionate Full Stack Developer specializing in the MERN stack. I build responsive, scalable, and user-friendly web applications with clean code and modern technologies.
+        <strong>Passionate Full Stack Developer skilled in MERN Stack and Java Full Stack development. 
+          I build responsive, scalable, and user-friendly web applications.</strong>
       </p>
       
       <Button variant="primary" href="/Wilson_Resume.pdf"  className="btn" download>

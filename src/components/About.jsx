@@ -4,9 +4,9 @@ function About() {
 
       <h2>About Me</h2>
 
-      <p>
-        Hi, I'm Wilson, a Computer Science student passionate about Full Stack Web Development. I specialize in building modern, responsive web applications using the MERN stack (MongoDB, Express.js, React, and Node.js). I enjoy solving real-world problems, learning new technologies, and creating clean, scalable, and user-focused applications.
-      </p>
+      <p><strong>I’m a Computer Science student and Full Stack Developer with a strong interest in building modern web applications.
+      I work with the MERN Stack and Java Full Stack technologies, including Spring Boot and SQL. I enjoy developing clean, efficient, 
+      and user-friendly applications while continuously learning new technologies.</strong></p>
 
     </section>
   );
