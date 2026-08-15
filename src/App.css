@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
 /* =========================================================
    GLOBAL
    ========================================================= */
@@ -12,10 +11,22 @@
     scroll-behavior: smooth;
 }
 
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
+    width: 100%;
+    min-width: 320px;
     font-family: 'Poppins', sans-serif;
     background: #0f172a;
     color: #fff;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
 }
 
 hr {
@@ -32,12 +43,15 @@ hr {
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 70px;
     z-index: 9999;
+
+    background: rgba(15, 23, 42, 0.85);
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .4);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
 .navbar-brand h2 {
@@ -50,7 +64,7 @@ hr {
     color: white !important;
     margin-left: 18px;
     font-weight: 500;
-    transition: 0.3s;
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover {
@@ -63,7 +77,8 @@ hr {
    ========================================================= */
 
 .hero {
-    min-height: calc(100vh - 70px);
+    width: 100%;
+    min-height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -73,13 +88,16 @@ hr {
 
     text-align: center;
 
-    padding: 100px 20px 80px;
+    padding: 100px 20px 70px;
 
-    background: radial-gradient(
-        circle at top,
-        #312e81,
-        #0f172a 60%
-    );
+    background:
+        radial-gradient(
+            circle at top,
+            #312e81,
+            #0f172a 60%
+        );
+
+    overflow: hidden;
 }
 
 
@@ -93,7 +111,6 @@ hr {
 
     object-fit: contain;
 
-    /* Fade the bottom edge */
     -webkit-mask-image: linear-gradient(
         to bottom,
         black 80%,
@@ -121,17 +138,13 @@ hr {
 .hero h1 {
     font-size: 2.4rem;
     margin-top: 20px;
-
     font-weight: 700;
-
     color: #e3e7e9;
 }
 
 .hero h3 {
     color: #38bdf8;
-
     margin: 18px 0;
-
     font-size: 2rem;
 }
 
@@ -148,6 +161,10 @@ hr {
     font-size: 20px;
 }
 
+.btn {
+    transition: all 0.3s ease;
+}
+
 .btn:hover {
     transform: translateY(-5px);
     color: white;
@@ -162,11 +179,13 @@ hr {
    ========================================================= */
 
 section {
+    width: 100%;
+
     padding: 80px 12%;
 
     background: #0f172a;
 
-    margin-bottom: -1px;
+    margin: 0;
 }
 
 section h2 {
@@ -262,7 +281,7 @@ section h2::after {
 .skill-categories {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 30px;
 
@@ -380,6 +399,8 @@ section h2::after {
     justify-content: center;
 
     font-size: 27px;
+
+    flex-shrink: 0;
 }
 
 
@@ -408,7 +429,7 @@ section h2::after {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(320px, 1fr));
+        repeat(auto-fit, minmax(300px, 1fr));
 
     gap: 30px;
 
@@ -421,6 +442,8 @@ section h2::after {
    ========================================================= */
 
 .project {
+    min-width: 0;
+
     background:
         linear-gradient(
             135deg,
@@ -433,16 +456,17 @@ section h2::after {
     border-radius: 18px;
 
     border:
-        1px solid rgba(255, 255, 255, .08);
+        1px solid rgba(255, 255, 255, 0.08);
 
     box-shadow:
-        0 10px 25px rgba(0, 0, 0, .35);
+        0 10px 25px rgba(0, 0, 0, 0.35);
 
     display: flex;
 
     flex-direction: column;
 
-    transition: .35s;
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease;
 }
 
 .project:hover {
@@ -509,7 +533,9 @@ section h2::after {
 }
 
 #contact a {
-    transition: .35s;
+    display: inline-block;
+
+    transition: 0.35s;
 }
 
 #contact a:hover {
@@ -524,6 +550,8 @@ section h2::after {
    ========================================================= */
 
 footer {
+    width: 100%;
+
     background: #111827;
 
     color: #94a3b8;
@@ -532,7 +560,7 @@ footer {
 
     padding: 25px;
 
-    margin-top: -1px;
+    margin: 0;
 }
 
 footer p {
@@ -540,7 +568,7 @@ footer p {
 
     font-size: 14px;
 
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
 }
 
 
@@ -604,10 +632,10 @@ footer p {
     border-radius: 16px;
 
     border:
-        1px solid rgba(255, 255, 255, .08);
+        1px solid rgba(255, 255, 255, 0.08);
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, .3);
+        0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .marquee-content {
@@ -619,6 +647,8 @@ footer p {
 
     animation:
         marquee 20s linear infinite;
+
+    will-change: transform;
 }
 
 .marquee:hover .marquee-content {
@@ -640,7 +670,7 @@ footer p {
     border-radius: 12px;
 
     border:
-        3px solid rgba(255, 255, 255, .12);
+        3px solid rgba(255, 255, 255, 0.12);
 
     transition: 0.3s ease;
 }
@@ -655,7 +685,7 @@ footer p {
             56,
             189,
             248,
-            .35
+            0.35
         );
 }
 
@@ -696,7 +726,10 @@ footer p {
 
     inset: 0;
 
-    background: rgba(0, 0, 0, .85);
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.85);
 
     display: flex;
 
@@ -704,14 +737,19 @@ footer p {
 
     align-items: center;
 
-    z-index: 9999;
+    padding: 20px;
+
+    z-index: 99999;
 
     animation:
-        fadeIn .3s ease;
+        fadeIn 0.3s ease;
 }
 
 .popup-content {
     position: relative;
+
+    max-width: 95vw;
+    max-height: 90vh;
 
     background: #1e293b;
 
@@ -720,12 +758,15 @@ footer p {
     border-radius: 15px;
 
     animation:
-        popup .3s ease;
+        popup 0.3s ease;
+
+    overflow: hidden;
 }
 
 .popup-content img {
-    width: 750px;
+    display: block;
 
+    width: auto;
     max-width: 90vw;
 
     max-height: 80vh;
@@ -738,8 +779,8 @@ footer p {
 .close {
     position: absolute;
 
-    top: -12px;
-    right: -12px;
+    top: 8px;
+    right: 8px;
 
     width: 40px;
     height: 40px;
@@ -756,7 +797,7 @@ footer p {
 
     cursor: pointer;
 
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .close:hover {
@@ -773,7 +814,7 @@ footer p {
 @keyframes popup {
 
     from {
-        transform: scale(.8);
+        transform: scale(0.8);
         opacity: 0;
     }
 
@@ -798,9 +839,7 @@ footer p {
 
 
 /* =========================================================
-   TABLET + MOBILE DESKTOP SITE
-   IMPORTANT:
-   1100px catches Chrome Android Desktop Site mode
+   TABLET / DESKTOP SITE / SMALL LAPTOP
    ========================================================= */
 
 @media screen and (max-width: 1100px) {
@@ -818,21 +857,16 @@ footer p {
     }
 
 
-    /* ================= HERO FIX ================= */
+    /* ================= HERO ================= */
 
     .hero {
         min-height: auto;
 
         height: auto;
 
-        /*
-         * IMPORTANT:
-         * Prevents the profile from being vertically
-         * centered inside a large viewport.
-         */
         justify-content: flex-start;
 
-        padding: 45px 20px 55px;
+        padding: 100px 20px 60px;
     }
 
 
@@ -892,7 +926,7 @@ footer p {
 
     .project-container {
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2, minmax(0, 1fr));
     }
 
 
@@ -906,15 +940,19 @@ footer p {
 
     /* ================= POPUP ================= */
 
+    .popup-content {
+        max-width: 95vw;
+    }
+
     .popup-content img {
-        width: 95vw;
+        max-width: 90vw;
     }
 
 }
 
 
 /* =========================================================
-   NORMAL MOBILE
+   MOBILE
    ========================================================= */
 
 @media screen and (max-width: 768px) {
@@ -932,6 +970,23 @@ footer p {
     }
 
 
+    /* ================= NAVBAR ================= */
+
+    .navbar {
+        min-height: 60px;
+    }
+
+    .navbar-brand h2 {
+        font-size: 1.4rem;
+    }
+
+    .nav-link {
+        margin-left: 0;
+
+        padding: 10px 0 !important;
+    }
+
+
     /* ================= HERO ================= */
 
     .hero {
@@ -941,7 +996,7 @@ footer p {
 
         justify-content: flex-start;
 
-        padding: 35px 15px 45px;
+        padding: 90px 15px 45px;
     }
 
 
@@ -990,6 +1045,8 @@ footer p {
 
     section h2 {
         font-size: 2rem;
+
+        margin-bottom: 30px;
     }
 
 
@@ -1029,8 +1086,15 @@ footer p {
 
     /* ================= PROJECTS ================= */
 
+    #projects {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
     .project-container {
         grid-template-columns: 1fr;
+
+        gap: 20px;
     }
 
     .project {
@@ -1058,14 +1122,24 @@ footer p {
 
     /* ================= POPUP ================= */
 
+    .popup {
+        padding: 10px;
+    }
+
     .popup-content {
         width: 95%;
+
+        max-width: 95%;
+
+        padding: 10px;
     }
 
     .popup-content img {
-        width: 95vw;
+        width: 100%;
 
         max-width: 100%;
+
+        max-height: 80vh;
     }
 
 }
@@ -1086,7 +1160,7 @@ footer p {
 
         justify-content: flex-start;
 
-        padding: 30px 12px 40px;
+        padding: 85px 12px 40px;
     }
 
 
@@ -1140,6 +1214,15 @@ footer p {
     }
 
 
+    /* ================= SECTION HEADING ================= */
+
+    section h2 {
+        font-size: 1.8rem;
+
+        margin-bottom: 25px;
+    }
+
+
     /* ================= SKILLS ================= */
 
     #skills h2 {
@@ -1148,6 +1231,8 @@ footer p {
 
     .skills-intro {
         font-size: 15px;
+
+        margin-bottom: 30px;
     }
 
     .skill-category {
@@ -1190,9 +1275,48 @@ footer p {
 
     /* ================= MARQUEE ================= */
 
+    .marquee {
+        border-radius: 12px;
+
+        padding: 15px 0;
+    }
+
+    .marquee-content {
+        gap: 20px;
+    }
+
     .marquee-content img {
         width: 130px;
         height: 90px;
+    }
+
+    .marquee-content p {
+        font-size: 13px;
+    }
+
+
+    /* ================= POPUP ================= */
+
+    .popup-content {
+        width: 95%;
+
+        padding: 8px;
+    }
+
+    .popup-content img {
+        width: 100%;
+
+        max-height: 75vh;
+    }
+
+    .close {
+        width: 34px;
+        height: 34px;
+
+        font-size: 16px;
+
+        top: 5px;
+        right: 5px;
     }
 
 }
