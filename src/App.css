@@ -11,33 +11,45 @@
     scroll-behavior: smooth;
 }
 
-html,
-body {
+html {
     margin: 0;
     padding: 0;
     background: #0f172a;
-    color: #fff;
+    scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: #fff;
     overflow-x: hidden;
 }
 
-/* Remove unwanted lines */
-hr,
-section hr {
-    display: none !important;
-    border: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+/* React root */
+#root {
+    margin: 0;
+    padding: 0;
+    background: #0f172a;
 }
 
+/* Remove unwanted HR lines */
+hr {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+/* Remove default borders from major layout elements */
 section,
-div,
+main,
 footer {
-    border-top: 0;
-    border-bottom: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
 }
 
 /* =========================================================
@@ -50,8 +62,10 @@ footer {
     left: 0;
     width: 100%;
     z-index: 9999;
+
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -65,7 +79,7 @@ footer {
     color: white !important;
     margin-left: 18px;
     font-weight: 500;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .nav-link:hover {
@@ -77,15 +91,21 @@ footer {
    ========================================================= */
 
 .hero {
-    min-height: 100vh;
     width: 100%;
+
+    /* IMPORTANT:
+       Do NOT use 100vh.
+       This prevents the huge empty space. */
+    min-height: 0 !important;
+    height: auto !important;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     text-align: center;
 
-    /* Reduced bottom space */
     padding: 100px 20px 35px;
 
     background: radial-gradient(
@@ -94,13 +114,17 @@ footer {
         #0f172a 60%
     );
 
-    margin: 0;
-    border: none;
+    margin: 0 !important;
+    border: none !important;
+    outline: none !important;
 }
+
+/* Profile image */
 
 .profile {
     width: 220px;
     height: 220px;
+
     object-fit: contain;
 
     -webkit-mask-image: linear-gradient(
@@ -122,32 +146,45 @@ footer {
     transform: scale(1.05);
 }
 
+/* Hero heading */
+
 .hero h1 {
     font-size: 2.4rem;
     margin-top: 15px;
+    margin-bottom: 0;
+
     font-weight: 700;
     color: #e3e7e9;
 }
 
 .hero h3 {
     color: #38bdf8;
-    margin: 12px 0;
+    margin: 10px 0;
+
     font-size: 2rem;
 }
 
 .hero p {
     width: 700px;
     max-width: 90%;
+
     color: #d1d5db;
+
     line-height: 1.8;
-    margin-bottom: 25px;
+
+    margin: 0 0 20px;
+
     font-size: 20px;
 }
+
+/* Buttons */
 
 .btn:hover {
     transform: translateY(-5px);
     color: white;
-    box-shadow: 0 20px 40px rgba(103, 148, 220, 0.5);
+
+    box-shadow:
+        0 20px 40px rgba(103, 148, 220, 0.5);
 }
 
 /* =========================================================
@@ -156,34 +193,62 @@ footer {
 
 section {
     width: 100%;
-    padding: 55px 10%;
+
+    /* SMALL CONSISTENT SPACING */
+    padding: 40px 10%;
+
     background: #0f172a;
 
-    /* IMPORTANT */
     margin: 0 !important;
+
     border: none !important;
     border-top: none !important;
     border-bottom: none !important;
 
-    /* Prevent collapsing / strange gaps */
+    outline: none !important;
+
     display: block;
 }
+
+/* Remove any pseudo line from sections */
+
+section::before {
+    display: none !important;
+}
+
+section::after {
+    /* Do not remove heading underline because
+       section h2::after is separately defined */
+}
+
+/* Section heading */
 
 section h2 {
     text-align: center;
+
     font-size: 2.4rem;
+
     color: #ededef;
-    margin: 0 0 30px;
+
+    margin: 0 0 25px;
+
     position: relative;
 }
 
+/* Heading underline */
+
 section h2::after {
     content: "";
+
     width: 70px;
     height: 4px;
+
     background: #38bdf8;
+
     display: block;
+
     margin: 10px auto 0;
+
     border-radius: 20px;
 }
 
@@ -193,16 +258,26 @@ section h2::after {
 
 #about {
     background: #0f172a;
-    padding-top: 55px;
-    padding-bottom: 55px;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    margin: 0 !important;
+
+    border: none !important;
 }
 
 #about p {
     max-width: 850px;
-    margin: auto;
+
+    margin: 0 auto;
+
     text-align: center;
+
     line-height: 1.8;
+
     color: #d1d5db;
+
     font-size: 1.5rem;
 }
 
@@ -212,22 +287,35 @@ section h2::after {
 
 #skills {
     background: #0f172a;
+
     text-align: center;
+
     color: #d1d5db;
-    padding: 55px 8%;
+
+    padding: 40px 8%;
+
+    margin: 0 !important;
+
+    border: none !important;
 }
 
 #skills h2 {
     font-size: 2.5rem;
+
     color: #e3e7e9;
-    margin-bottom: 15px;
+
+    margin-bottom: 12px;
 }
 
 .skills-intro {
     font-size: 18px;
+
     max-width: 800px;
-    margin: 0 auto 35px;
+
+    margin: 0 auto 30px;
+
     color: #cbd5e1;
+
     line-height: 1.7;
 }
 
@@ -237,10 +325,14 @@ section h2::after {
 
 .skill-categories {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+
+    gap: 22px;
+
     max-width: 1100px;
-    margin: auto;
+
+    margin: 0 auto;
 }
 
 /* =========================================================
@@ -249,25 +341,43 @@ section h2::after {
 
 .skill-category {
     background: #1e293b;
+
     border: 1px solid rgba(255, 255, 255, 0.08);
+
     border-radius: 18px;
-    padding: 28px;
+
+    padding: 25px;
+
     text-align: left;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
     transition: 0.35s ease;
 }
 
 .skill-category:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.25);
+
+    box-shadow:
+        0 15px 35px rgba(59, 130, 246, 0.25);
 }
+
+/* =========================================================
+   SKILL CATEGORY HEADING
+   ========================================================= */
 
 .skill-category h3 {
     color: #38bdf8;
+
     font-size: 21px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 12px;
+
+    margin: 0 0 18px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.1);
+
+    padding-bottom: 10px;
 }
 
 /* =========================================================
@@ -276,22 +386,34 @@ section h2::after {
 
 .skill-list {
     display: flex;
+
     flex-wrap: wrap;
-    gap: 10px;
+
+    gap: 9px;
 }
+
+/* =========================================================
+   INDIVIDUAL SKILL
+   ========================================================= */
 
 .skill-item {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 
     background: #0f172a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    padding: 10px 14px;
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    padding: 9px 13px;
+
     border-radius: 10px;
 
     font-size: 16px;
+
     color: #e2e8f0;
 
     transition: 0.3s ease;
@@ -299,14 +421,20 @@ section h2::after {
 
 .skill-item:hover {
     transform: translateY(-3px);
+
     border-color: #38bdf8;
+
     background: #172554;
 }
 
+/* Skill icon */
+
 .skill-icon {
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     font-size: 27px;
 }
 
@@ -316,69 +444,219 @@ section h2::after {
 
 #projects {
     background: #0f172a;
-    padding: 55px 10%;
+
+    padding: 40px 10%;
+
+    margin: 0 !important;
+
+    border: none !important;
 }
 
 #projects h2 {
     text-align: center;
-    margin-bottom: 35px;
+
+    margin-bottom: 30px;
 }
+
+/* Projects grid */
 
 .project-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 22px;
+
     align-items: stretch;
 }
 
+/* Project card */
+
 .project {
-    background: linear-gradient(
-        135deg,
-        #1e293b,
-        #111827
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #1e293b,
+            #111827
+        );
 
-    padding: 30px;
+    padding: 28px;
+
     border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35);
 
     display: flex;
+
     flex-direction: column;
 
-    transition: 0.35s;
+    transition: 0.35s ease;
 }
 
 .project:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(59, 130, 246, 0.349);
+
+    box-shadow:
+        0 20px 45px rgba(59, 130, 246, 0.349);
 }
 
 .project h3 {
     color: #38bdf8;
-    margin-bottom: 15px;
+
+    margin: 0 0 14px;
+
     font-size: 28px;
 }
 
 .project p {
     color: #d1d5db;
+
     line-height: 1.8;
+
     font-size: 18px;
-    margin-bottom: 15px;
+
+    margin: 0 0 15px;
 }
 
 .project-btn {
     margin-top: auto;
+
     display: flex;
+
     justify-content: center;
-    padding-top: 18px;
+
+    padding-top: 15px;
 }
 
 .project-btn .btn {
     padding: 10px 24px;
+
     font-size: 16px;
+
     border-radius: 8px;
+}
+
+/* =========================================================
+   ACHIEVEMENTS
+   ========================================================= */
+
+#achievements {
+    background: #0f172a;
+
+    padding: 40px 10%;
+
+    text-align: center;
+
+    margin: 0 !important;
+
+    border: none !important;
+}
+
+#achievements h2 {
+    color: white;
+
+    margin: 0 0 25px;
+
+    font-size: 2rem;
+}
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+.marquee {
+    overflow: hidden;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 15px 0;
+
+    background: #1e293b;
+
+    border-radius: 16px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.marquee-content {
+    display: flex;
+
+    gap: 35px;
+
+    width: max-content;
+
+    animation:
+        marquee 20s linear infinite;
+}
+
+.marquee:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+.marquee-content span {
+    flex-shrink: 0;
+
+    cursor: pointer;
+}
+
+.marquee-content img {
+    width: 230px;
+    height: 160px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border:
+        3px solid rgba(255, 255, 255, 0.12);
+
+    transition: 0.3s ease;
+}
+
+.marquee-content img:hover {
+    transform: scale(1.08);
+
+    border-color: #38bdf8;
+
+    box-shadow:
+        0 12px 30px rgba(56, 189, 248, 0.35);
+}
+
+.marquee-content p {
+    margin: 8px 0 0;
+
+    color: #d1d5db;
+
+    font-size: 16px;
+
+    text-align: center;
+}
+
+/* Marquee animation */
+
+@keyframes marquee {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
 }
 
 /* =========================================================
@@ -387,19 +665,28 @@ section h2::after {
 
 #contact {
     background: #0f172a;
+
     text-align: center;
+
     color: #d1d5db;
+
     font-size: 20px;
-    padding-top: 55px;
-    padding-bottom: 55px;
+
+    padding: 40px 10%;
+
+    margin: 0 !important;
+
+    border: none !important;
 }
 
 #contact a {
-    transition: 0.35s;
+    transition: 0.35s ease;
 }
 
 #contact a:hover {
-    transform: translateY(-6px) scale(1.15);
+    transform:
+        translateY(-6px)
+        scale(1.15);
 }
 
 /* =========================================================
@@ -408,21 +695,30 @@ section h2::after {
 
 footer {
     background: #111827;
+
     color: #94a3b8;
+
     text-align: center;
+
     padding: 20px;
+
     margin: 0 !important;
+
     border: none !important;
+
+    outline: none !important;
 }
 
 footer p {
     margin: 0;
+
     font-size: 14px;
+
     letter-spacing: 0.5px;
 }
 
 /* =========================================================
-   SCROLLBAR
+   SCROLL BAR
    ========================================================= */
 
 ::-webkit-scrollbar {
@@ -435,87 +731,8 @@ footer p {
 
 ::-webkit-scrollbar-thumb {
     background: #8787f8;
+
     border-radius: 20px;
-}
-
-/* =========================================================
-   ACHIEVEMENTS
-   ========================================================= */
-
-#achievements {
-    background: #0f172a;
-    padding: 55px 10%;
-    text-align: center;
-}
-
-#achievements h2 {
-    color: white;
-    margin-bottom: 30px;
-    font-size: 2rem;
-}
-
-/* =========================================================
-   MARQUEE
-   ========================================================= */
-
-.marquee {
-    overflow: hidden;
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    padding: 18px 0;
-    background: #1e293b;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.marquee-content {
-    display: flex;
-    gap: 35px;
-    width: max-content;
-    animation: marquee 20s linear infinite;
-}
-
-.marquee:hover .marquee-content {
-    animation-play-state: paused;
-}
-
-.marquee-content span {
-    flex-shrink: 0;
-    cursor: pointer;
-}
-
-.marquee-content img {
-    width: 230px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 3px solid rgba(255, 255, 255, 0.12);
-    transition: 0.3s ease;
-}
-
-.marquee-content img:hover {
-    transform: scale(1.08);
-    border-color: #38bdf8;
-    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.35);
-}
-
-.marquee-content p {
-    margin-top: 8px;
-    color: #d1d5db;
-    font-size: 16px;
-    text-align: center;
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
 }
 
 /* =========================================================
@@ -524,57 +741,85 @@ footer p {
 
 .popup {
     position: fixed;
+
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+
+    background:
+        rgba(0, 0, 0, 0.85);
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
-    z-index: 9999;
-    animation: fadeIn 0.3s ease;
+
+    z-index: 99999;
+
+    animation:
+        fadeIn 0.3s ease;
 }
 
 .popup-content {
     position: relative;
+
     background: #1e293b;
+
     padding: 20px;
+
     border-radius: 15px;
-    animation: popup 0.3s ease;
+
+    animation:
+        popup 0.3s ease;
 }
 
 .popup-content img {
     width: 750px;
+
     max-width: 90vw;
+
     max-height: 80vh;
+
     object-fit: contain;
+
     border-radius: 12px;
 }
 
 .close {
     position: absolute;
+
     top: -12px;
+
     right: -12px;
 
     width: 40px;
+
     height: 40px;
 
     border: none;
+
     border-radius: 50%;
 
     background: #ef4444;
+
     color: white;
 
     font-size: 18px;
+
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .close:hover {
     background: #dc2626;
+
     transform: rotate(90deg);
 }
 
+/* Popup animation */
+
 @keyframes popup {
+
     from {
         transform: scale(0.8);
         opacity: 0;
@@ -584,9 +829,11 @@ footer p {
         transform: scale(1);
         opacity: 1;
     }
+
 }
 
 @keyframes fadeIn {
+
     from {
         opacity: 0;
     }
@@ -594,6 +841,7 @@ footer p {
     to {
         opacity: 1;
     }
+
 }
 
 /* =========================================================
@@ -602,8 +850,25 @@ footer p {
 
 @media (max-width: 992px) {
 
+    /* HERO */
+
+    .hero {
+        min-height: 0 !important;
+        height: auto !important;
+
+        padding:
+            95px 20px 30px;
+    }
+
+    /* Sections */
+
     section {
-        padding: 50px 7%;
+        padding:
+            40px 7% !important;
+
+        margin: 0 !important;
+
+        border: none !important;
     }
 
     #about,
@@ -611,17 +876,27 @@ footer p {
     #projects,
     #achievements,
     #contact {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+
+        margin: 0 !important;
+
+        border: none !important;
     }
+
+    /* Skills */
 
     .skill-categories {
         grid-template-columns: 1fr;
+
         max-width: 800px;
     }
 
+    /* Projects */
+
     .project-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 }
 
@@ -631,31 +906,24 @@ footer p {
 
 @media (max-width: 768px) {
 
-    /* IMPORTANT:
-       No large gap between sections */
-    section {
-        padding: 45px 6%;
-        margin: 0 !important;
-        border: none !important;
-    }
-
-    #about,
-    #skills,
-    #projects,
-    #achievements,
-    #contact {
-        padding-top: 45px;
-        padding-bottom: 45px;
-        margin: 0 !important;
-        border: none !important;
-    }
-
-    /* ================= HERO ================= */
+    /* =====================================================
+       HERO MOBILE
+       ===================================================== */
 
     .hero {
-        min-height: auto;
-        padding: 95px 20px 35px;
-        margin: 0;
+        /* CRITICAL FIX */
+        min-height: 0 !important;
+        height: auto !important;
+
+        /* Prevent large bottom gap */
+        padding:
+            85px 20px 20px !important;
+
+        margin: 0 !important;
+
+        border: none !important;
+
+        justify-content: flex-start;
     }
 
     .profile {
@@ -665,90 +933,161 @@ footer p {
 
     .hero h1 {
         font-size: 2rem;
-        margin-top: 12px;
+
+        margin-top: 10px;
+        margin-bottom: 0;
     }
 
     .hero h3 {
         font-size: 1.4rem;
-        margin: 10px 0;
+
+        margin: 7px 0;
     }
 
     .hero p {
         width: 100%;
+
         max-width: 100%;
+
         font-size: 16px;
-        line-height: 1.7;
-        margin-bottom: 18px;
+
+        line-height: 1.6;
+
+        margin-bottom: 15px;
     }
 
-    /* ================= SECTION HEADING ================= */
+    /* =====================================================
+       ALL SECTIONS MOBILE
+       ===================================================== */
+
+    section {
+        padding:
+            30px 6% !important;
+
+        margin: 0 !important;
+
+        border: none !important;
+
+        border-top: none !important;
+
+        border-bottom: none !important;
+
+        outline: none !important;
+    }
+
+    #about,
+    #skills,
+    #projects,
+    #achievements,
+    #contact {
+        padding-top: 30px !important;
+
+        padding-bottom: 30px !important;
+
+        margin: 0 !important;
+
+        border: none !important;
+    }
+
+    /* =====================================================
+       SECTION HEADINGS
+       ===================================================== */
 
     section h2 {
         font-size: 2rem;
-        margin-bottom: 25px;
+
+        margin:
+            0 0 20px;
     }
 
-    /* ================= ABOUT ================= */
+    /* =====================================================
+       ABOUT MOBILE
+       ===================================================== */
 
     #about p {
         font-size: 1.1rem;
+
         line-height: 1.7;
     }
 
-    /* ================= SKILLS ================= */
+    /* =====================================================
+       SKILLS MOBILE
+       ===================================================== */
 
     #skills {
-        padding-left: 6%;
-        padding-right: 6%;
+        padding-left: 6% !important;
+
+        padding-right: 6% !important;
     }
 
     #skills h2 {
         font-size: 2rem;
+
+        margin-bottom: 10px;
     }
 
     .skills-intro {
         font-size: 16px;
-        line-height: 1.7;
-        margin-bottom: 30px;
+
+        line-height: 1.6;
+
+        margin-bottom: 25px;
     }
 
     .skill-categories {
         grid-template-columns: 1fr;
-        gap: 18px;
+
+        gap: 15px;
+
         width: 100%;
     }
 
     .skill-category {
-        padding: 22px;
+        padding: 20px;
+
+        border-radius: 15px;
     }
 
     .skill-category h3 {
         font-size: 19px;
-        margin-bottom: 16px;
+
+        margin-bottom: 15px;
     }
 
     .skill-list {
-        gap: 9px;
+        gap: 8px;
     }
 
     .skill-item {
-        padding: 9px 13px;
+        padding: 9px 12px;
+
         font-size: 15px;
     }
 
     .skill-icon {
-        font-size: 24px;
+        font-size: 23px;
     }
 
-    /* ================= PROJECTS ================= */
+    /* =====================================================
+       PROJECTS MOBILE
+       ===================================================== */
+
+    #projects {
+        padding-left: 6% !important;
+
+        padding-right: 6% !important;
+    }
 
     .project-container {
         grid-template-columns: 1fr;
-        gap: 18px;
+
+        gap: 15px;
     }
 
     .project {
-        padding: 22px;
+        padding: 20px;
+
+        border-radius: 15px;
     }
 
     .project h3 {
@@ -756,32 +1095,74 @@ footer p {
     }
 
     .project p {
-        font-size: 16px;
+        font-size: 15px;
+
+        line-height: 1.7;
     }
 
-    /* ================= ACHIEVEMENTS ================= */
+    /* =====================================================
+       ACHIEVEMENTS MOBILE
+       ===================================================== */
+
+    #achievements {
+        padding-left: 6% !important;
+
+        padding-right: 6% !important;
+    }
+
+    #achievements h2 {
+        font-size: 1.8rem;
+
+        margin-bottom: 20px;
+    }
+
+    .marquee {
+        border-radius: 12px;
+
+        padding: 12px 0;
+    }
 
     .marquee-content img {
         width: 150px;
+
         height: 100px;
     }
 
-    /* ================= POPUP ================= */
+    /* =====================================================
+       CONTACT MOBILE
+       ===================================================== */
+
+    #contact {
+        padding-left: 6% !important;
+
+        padding-right: 6% !important;
+
+        font-size: 17px;
+    }
+
+    /* =====================================================
+       POPUP MOBILE
+       ===================================================== */
 
     .popup-content {
         width: 95%;
+
         padding: 15px;
     }
 
     .popup-content img {
         width: 95vw;
+
         max-width: 100%;
     }
 
     .close {
         width: 35px;
+
         height: 35px;
+
         top: -10px;
+
         right: -10px;
     }
 }
@@ -792,29 +1173,52 @@ footer p {
 
 @media (max-width: 480px) {
 
+    /* HERO */
+
     .hero {
-        padding: 90px 15px 30px;
+        min-height: 0 !important;
+
+        height: auto !important;
+
+        padding:
+            80px 15px 18px !important;
     }
 
     .profile {
         width: 125px;
+
         height: 125px;
     }
 
     .hero h1 {
         font-size: 1.7rem;
+
+        margin-top: 8px;
     }
 
     .hero h3 {
         font-size: 1.2rem;
+
+        margin: 5px 0;
     }
 
     .hero p {
-        font-size: 15px;
+        font-size: 14px;
+
+        line-height: 1.55;
+
+        margin-bottom: 12px;
     }
 
+    /* SECTIONS */
+
     section {
-        padding: 40px 5%;
+        padding:
+            25px 5% !important;
+
+        margin: 0 !important;
+
+        border: none !important;
     }
 
     #about,
@@ -822,58 +1226,114 @@ footer p {
     #projects,
     #achievements,
     #contact {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 25px !important;
+
+        padding-bottom: 25px !important;
+
+        margin: 0 !important;
+
+        border: none !important;
     }
 
-    /* Skills */
+    /* HEADINGS */
+
+    section h2 {
+        font-size: 1.8rem;
+
+        margin-bottom: 18px;
+    }
+
+    /* ABOUT */
+
+    #about p {
+        font-size: 1rem;
+
+        line-height: 1.65;
+    }
+
+    /* SKILLS */
 
     #skills h2 {
         font-size: 1.8rem;
     }
 
     .skills-intro {
-        font-size: 15px;
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        margin-bottom: 20px;
     }
 
     .skill-category {
-        padding: 18px;
-        border-radius: 15px;
+        padding: 17px;
+
+        border-radius: 14px;
     }
 
     .skill-category h3 {
-        font-size: 18px;
+        font-size: 17px;
+
+        margin-bottom: 13px;
     }
 
     .skill-list {
         flex-direction: column;
-        gap: 8px;
+
+        gap: 7px;
     }
 
     .skill-item {
         width: 100%;
+
         justify-content: flex-start;
-        font-size: 15px;
+
+        font-size: 14px;
+
+        padding: 8px 11px;
     }
 
-    /* Projects */
+    /* PROJECTS */
 
     .project {
-        padding: 18px;
+        padding: 17px;
+
+        border-radius: 14px;
     }
 
     .project h3 {
-        font-size: 20px;
+        font-size: 19px;
     }
 
     .project p {
-        font-size: 15px;
+        font-size: 14px;
+
+        line-height: 1.65;
     }
 
-    /* Marquee */
+    /* ACHIEVEMENTS */
+
+    #achievements h2 {
+        font-size: 1.7rem;
+    }
+
+    .marquee-content {
+        gap: 20px;
+    }
 
     .marquee-content img {
         width: 130px;
+
         height: 90px;
+    }
+
+    .marquee-content p {
+        font-size: 13px;
+    }
+
+    /* CONTACT */
+
+    #contact {
+        font-size: 16px;
     }
 }
