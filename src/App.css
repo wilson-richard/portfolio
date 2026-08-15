@@ -21,35 +21,40 @@ html {
 body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    min-height: 100%;
     font-family: 'Poppins', sans-serif;
     background: #0f172a;
-    color: #fff;
+    color: #ffffff;
     overflow-x: hidden;
 }
 
 /* React root */
 #root {
+    width: 100%;
     margin: 0;
     padding: 0;
     background: #0f172a;
 }
 
-/* Remove unwanted HR lines */
-hr {
+/* Remove unwanted horizontal lines */
+hr,
+section hr {
     display: none !important;
     height: 0 !important;
+    border: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    border: 0 !important;
 }
 
-/* Remove default borders from major layout elements */
+/* Remove default spacing */
 section,
+footer,
+header,
 main,
-footer {
-    margin: 0;
-    border: 0;
-    outline: 0;
+div {
+    border-top: 0;
+    border-bottom: 0;
 }
 
 /* =========================================================
@@ -60,26 +65,39 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
+    min-height: 60px;
+
     z-index: 9999;
+
+    background: rgba(15, 23, 42, 0.92) !important;
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.35);
+
+    border: none !important;
+}
+
+.navbar-brand {
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-brand h2 {
     color: #fbfaff;
     font-weight: 700;
     margin: 0;
+    font-size: 22px;
 }
 
 .nav-link {
-    color: white !important;
+    color: #ffffff !important;
     margin-left: 18px;
     font-weight: 500;
-    transition: 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover {
@@ -93,9 +111,10 @@ footer {
 .hero {
     width: 100%;
 
-    /* IMPORTANT:
-       Do NOT use 100vh.
-       This prevents the huge empty space. */
+    /*
+       Do NOT use 100vh here.
+       It creates the large empty space on mobile/Desktop Site.
+    */
     min-height: 0 !important;
     height: auto !important;
 
@@ -106,20 +125,24 @@ footer {
 
     text-align: center;
 
-    padding: 100px 20px 35px;
-
-    background: radial-gradient(
-        circle at top,
-        #312e81,
-        #0f172a 60%
-    );
+    padding: 120px 20px 45px;
 
     margin: 0 !important;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #312e81 0%,
+            #1e1b4b 35%,
+            #0f172a 72%
+        );
+
     border: none !important;
-    outline: none !important;
 }
 
-/* Profile image */
+/* =========================================================
+   PROFILE IMAGE
+   ========================================================= */
 
 .profile {
     width: 220px;
@@ -146,22 +169,26 @@ footer {
     transform: scale(1.05);
 }
 
-/* Hero heading */
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
 
 .hero h1 {
     font-size: 2.4rem;
-    margin-top: 15px;
-    margin-bottom: 0;
-
     font-weight: 700;
+
+    margin: 12px 0 0;
+
     color: #e3e7e9;
 }
 
 .hero h3 {
     color: #38bdf8;
-    margin: 10px 0;
 
     font-size: 2rem;
+    font-weight: 600;
+
+    margin: 10px 0;
 }
 
 .hero p {
@@ -171,20 +198,27 @@ footer {
     color: #d1d5db;
 
     line-height: 1.8;
-
-    margin: 0 0 20px;
-
     font-size: 20px;
+
+    margin: 0 0 25px;
 }
 
-/* Buttons */
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.btn {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
 .btn:hover {
-    transform: translateY(-5px);
-    color: white;
+    transform: translateY(-4px);
+    color: #ffffff;
 
     box-shadow:
-        0 20px 40px rgba(103, 148, 220, 0.5);
+        0 15px 30px rgba(103, 148, 220, 0.4);
 }
 
 /* =========================================================
@@ -194,60 +228,47 @@ footer {
 section {
     width: 100%;
 
-    /* SMALL CONSISTENT SPACING */
-    padding: 40px 10%;
-
-    background: #0f172a;
+    padding: 55px 10%;
 
     margin: 0 !important;
 
+    background: #0f172a;
+
     border: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
 
     outline: none !important;
-
-    display: block;
 }
 
-/* Remove any pseudo line from sections */
-
-section::before {
-    display: none !important;
-}
-
-section::after {
-    /* Do not remove heading underline because
-       section h2::after is separately defined */
-}
-
-/* Section heading */
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
 
 section h2 {
     text-align: center;
 
     font-size: 2.4rem;
+    font-weight: 600;
 
     color: #ededef;
 
-    margin: 0 0 25px;
+    margin: 0 0 30px;
 
     position: relative;
 }
 
-/* Heading underline */
-
 section h2::after {
     content: "";
+
+    display: block;
 
     width: 70px;
     height: 4px;
 
-    background: #38bdf8;
-
-    display: block;
-
     margin: 10px auto 0;
+
+    background: #38bdf8;
 
     border-radius: 20px;
 }
@@ -257,10 +278,11 @@ section h2::after {
    ========================================================= */
 
 #about {
+    width: 100%;
+
     background: #0f172a;
 
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 55px 10%;
 
     margin: 0 !important;
 
@@ -286,13 +308,15 @@ section h2::after {
    ========================================================= */
 
 #skills {
+    width: 100%;
+
     background: #0f172a;
 
     text-align: center;
 
     color: #d1d5db;
 
-    padding: 40px 8%;
+    padding: 55px 8%;
 
     margin: 0 !important;
 
@@ -304,17 +328,17 @@ section h2::after {
 
     color: #e3e7e9;
 
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .skills-intro {
-    font-size: 18px;
-
     max-width: 800px;
 
-    margin: 0 auto 30px;
+    margin: 0 auto 35px;
 
     color: #cbd5e1;
+
+    font-size: 18px;
 
     line-height: 1.7;
 }
@@ -324,15 +348,16 @@ section h2::after {
    ========================================================= */
 
 .skill-categories {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 22px;
-
+    width: 100%;
     max-width: 1100px;
 
     margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
 }
 
 /* =========================================================
@@ -340,20 +365,24 @@ section h2::after {
    ========================================================= */
 
 .skill-category {
+    min-width: 0;
+
     background: #1e293b;
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
     border-radius: 18px;
 
-    padding: 25px;
+    padding: 28px;
 
     text-align: left;
 
     box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.25);
 
-    transition: 0.35s ease;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .skill-category:hover {
@@ -363,21 +392,17 @@ section h2::after {
         0 15px 35px rgba(59, 130, 246, 0.25);
 }
 
-/* =========================================================
-   SKILL CATEGORY HEADING
-   ========================================================= */
-
 .skill-category h3 {
     color: #38bdf8;
 
     font-size: 21px;
 
-    margin: 0 0 18px;
+    margin: 0 0 20px;
+
+    padding-bottom: 12px;
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.1);
-
-    padding-bottom: 10px;
 }
 
 /* =========================================================
@@ -389,12 +414,8 @@ section h2::after {
 
     flex-wrap: wrap;
 
-    gap: 9px;
+    gap: 10px;
 }
-
-/* =========================================================
-   INDIVIDUAL SKILL
-   ========================================================= */
 
 .skill-item {
     display: flex;
@@ -408,7 +429,7 @@ section h2::after {
     border:
         1px solid rgba(255, 255, 255, 0.08);
 
-    padding: 9px 13px;
+    padding: 10px 14px;
 
     border-radius: 10px;
 
@@ -416,7 +437,10 @@ section h2::after {
 
     color: #e2e8f0;
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
 .skill-item:hover {
@@ -426,8 +450,6 @@ section h2::after {
 
     background: #172554;
 }
-
-/* Skill icon */
 
 .skill-icon {
     display: flex;
@@ -443,9 +465,11 @@ section h2::after {
    ========================================================= */
 
 #projects {
+    width: 100%;
+
     background: #0f172a;
 
-    padding: 40px 10%;
+    padding: 55px 10%;
 
     margin: 0 !important;
 
@@ -455,25 +479,33 @@ section h2::after {
 #projects h2 {
     text-align: center;
 
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
-/* Projects grid */
+/* =========================================================
+   PROJECT GRID
+   ========================================================= */
 
 .project-container {
+    width: 100%;
+
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(320px, 1fr));
+        repeat(auto-fit, minmax(280px, 1fr));
 
-    gap: 22px;
+    gap: 25px;
 
     align-items: stretch;
 }
 
-/* Project card */
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
 
 .project {
+    min-width: 0;
+
     background:
         linear-gradient(
             135deg,
@@ -481,7 +513,7 @@ section h2::after {
             #111827
         );
 
-    padding: 28px;
+    padding: 30px;
 
     border-radius: 18px;
 
@@ -495,20 +527,22 @@ section h2::after {
 
     flex-direction: column;
 
-    transition: 0.35s ease;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .project:hover {
     transform: translateY(-8px);
 
     box-shadow:
-        0 20px 45px rgba(59, 130, 246, 0.349);
+        0 20px 45px rgba(59, 130, 246, 0.35);
 }
 
 .project h3 {
     color: #38bdf8;
 
-    margin: 0 0 14px;
+    margin: 0 0 15px;
 
     font-size: 28px;
 }
@@ -530,7 +564,7 @@ section h2::after {
 
     justify-content: center;
 
-    padding-top: 15px;
+    padding-top: 18px;
 }
 
 .project-btn .btn {
@@ -546,9 +580,11 @@ section h2::after {
    ========================================================= */
 
 #achievements {
+    width: 100%;
+
     background: #0f172a;
 
-    padding: 40px 10%;
+    padding: 55px 10%;
 
     text-align: center;
 
@@ -558,9 +594,9 @@ section h2::after {
 }
 
 #achievements h2 {
-    color: white;
+    color: #ffffff;
 
-    margin: 0 0 25px;
+    margin: 0 0 30px;
 
     font-size: 2rem;
 }
@@ -570,15 +606,14 @@ section h2::after {
    ========================================================= */
 
 .marquee {
-    overflow: hidden;
-
     width: 100%;
-
     max-width: 1000px;
 
     margin: 0 auto;
 
-    padding: 15px 0;
+    padding: 18px 0;
+
+    overflow: hidden;
 
     background: #1e293b;
 
@@ -623,7 +658,10 @@ section h2::after {
     border:
         3px solid rgba(255, 255, 255, 0.12);
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .marquee-content img:hover {
@@ -645,7 +683,9 @@ section h2::after {
     text-align: center;
 }
 
-/* Marquee animation */
+/* =========================================================
+   MARQUEE ANIMATION
+   ========================================================= */
 
 @keyframes marquee {
 
@@ -656,7 +696,6 @@ section h2::after {
     to {
         transform: translateX(-50%);
     }
-
 }
 
 /* =========================================================
@@ -664,6 +703,8 @@ section h2::after {
    ========================================================= */
 
 #contact {
+    width: 100%;
+
     background: #0f172a;
 
     text-align: center;
@@ -672,7 +713,7 @@ section h2::after {
 
     font-size: 20px;
 
-    padding: 40px 10%;
+    padding: 55px 10%;
 
     margin: 0 !important;
 
@@ -680,13 +721,13 @@ section h2::after {
 }
 
 #contact a {
-    transition: 0.35s ease;
+    transition:
+        transform 0.35s ease;
 }
 
 #contact a:hover {
     transform:
-        translateY(-6px)
-        scale(1.15);
+        translateY(-6px) scale(1.15);
 }
 
 /* =========================================================
@@ -694,6 +735,8 @@ section h2::after {
    ========================================================= */
 
 footer {
+    width: 100%;
+
     background: #111827;
 
     color: #94a3b8;
@@ -705,8 +748,6 @@ footer {
     margin: 0 !important;
 
     border: none !important;
-
-    outline: none !important;
 }
 
 footer p {
@@ -718,7 +759,122 @@ footer p {
 }
 
 /* =========================================================
-   SCROLL BAR
+   POPUP
+   ========================================================= */
+
+.popup {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    animation:
+        fadeIn 0.3s ease;
+}
+
+.popup-content {
+    position: relative;
+
+    max-width: 95vw;
+    max-height: 90vh;
+
+    background: #1e293b;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    animation:
+        popup 0.3s ease;
+}
+
+.popup-content img {
+    display: block;
+
+    width: 750px;
+
+    max-width: 90vw;
+
+    max-height: 80vh;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+}
+
+.close {
+    position: absolute;
+
+    top: -12px;
+    right: -12px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ef4444;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.close:hover {
+    background: #dc2626;
+
+    transform: rotate(90deg);
+}
+
+/* =========================================================
+   POPUP ANIMATIONS
+   ========================================================= */
+
+@keyframes popup {
+
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   SCROLLBAR
    ========================================================= */
 
 ::-webkit-scrollbar {
@@ -736,135 +892,48 @@ footer p {
 }
 
 /* =========================================================
-   POPUP
-   ========================================================= */
-
-.popup {
-    position: fixed;
-
-    inset: 0;
-
-    background:
-        rgba(0, 0, 0, 0.85);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    z-index: 99999;
-
-    animation:
-        fadeIn 0.3s ease;
-}
-
-.popup-content {
-    position: relative;
-
-    background: #1e293b;
-
-    padding: 20px;
-
-    border-radius: 15px;
-
-    animation:
-        popup 0.3s ease;
-}
-
-.popup-content img {
-    width: 750px;
-
-    max-width: 90vw;
-
-    max-height: 80vh;
-
-    object-fit: contain;
-
-    border-radius: 12px;
-}
-
-.close {
-    position: absolute;
-
-    top: -12px;
-
-    right: -12px;
-
-    width: 40px;
-
-    height: 40px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #ef4444;
-
-    color: white;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
-.close:hover {
-    background: #dc2626;
-
-    transform: rotate(90deg);
-}
-
-/* Popup animation */
-
-@keyframes popup {
-
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-}
-
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-
-}
-
-/* =========================================================
    TABLET
    ========================================================= */
 
 @media (max-width: 992px) {
 
-    /* HERO */
-
-    .hero {
-        min-height: 0 !important;
-        height: auto !important;
-
-        padding:
-            95px 20px 30px;
+    section {
+        padding: 50px 7%;
     }
 
-    /* Sections */
+    #about,
+    #skills,
+    #projects,
+    #achievements,
+    #contact {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .skill-categories {
+        grid-template-columns: 1fr;
+
+        max-width: 800px;
+    }
+
+    .project-container {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       COMMON
+       ----------------------------------------------------- */
 
     section {
-        padding:
-            40px 7% !important;
+        padding: 40px 6% !important;
 
         margin: 0 !important;
 
@@ -884,46 +953,19 @@ footer p {
         border: none !important;
     }
 
-    /* Skills */
-
-    .skill-categories {
-        grid-template-columns: 1fr;
-
-        max-width: 800px;
-    }
-
-    /* Projects */
-
-    .project-container {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    /* =====================================================
-       HERO MOBILE
-       ===================================================== */
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
 
     .hero {
-        /* CRITICAL FIX */
         min-height: 0 !important;
         height: auto !important;
 
-        /* Prevent large bottom gap */
-        padding:
-            85px 20px 20px !important;
+        padding: 90px 20px 30px !important;
 
         margin: 0 !important;
 
         border: none !important;
-
-        justify-content: flex-start;
     }
 
     .profile {
@@ -935,74 +977,38 @@ footer p {
         font-size: 2rem;
 
         margin-top: 10px;
-        margin-bottom: 0;
     }
 
     .hero h3 {
         font-size: 1.4rem;
 
-        margin: 7px 0;
+        margin: 8px 0;
     }
 
     .hero p {
         width: 100%;
-
         max-width: 100%;
 
         font-size: 16px;
 
-        line-height: 1.6;
+        line-height: 1.7;
 
-        margin-bottom: 15px;
+        margin-bottom: 18px;
     }
 
-    /* =====================================================
-       ALL SECTIONS MOBILE
-       ===================================================== */
-
-    section {
-        padding:
-            30px 6% !important;
-
-        margin: 0 !important;
-
-        border: none !important;
-
-        border-top: none !important;
-
-        border-bottom: none !important;
-
-        outline: none !important;
-    }
-
-    #about,
-    #skills,
-    #projects,
-    #achievements,
-    #contact {
-        padding-top: 30px !important;
-
-        padding-bottom: 30px !important;
-
-        margin: 0 !important;
-
-        border: none !important;
-    }
-
-    /* =====================================================
-       SECTION HEADINGS
-       ===================================================== */
+    /* -----------------------------------------------------
+       SECTION HEADING
+       ----------------------------------------------------- */
 
     section h2 {
         font-size: 2rem;
 
-        margin:
-            0 0 20px;
+        margin-bottom: 22px;
     }
 
-    /* =====================================================
-       ABOUT MOBILE
-       ===================================================== */
+    /* -----------------------------------------------------
+       ABOUT
+       ----------------------------------------------------- */
 
     #about p {
         font-size: 1.1rem;
@@ -1010,26 +1016,23 @@ footer p {
         line-height: 1.7;
     }
 
-    /* =====================================================
-       SKILLS MOBILE
-       ===================================================== */
+    /* -----------------------------------------------------
+       SKILLS
+       ----------------------------------------------------- */
 
     #skills {
         padding-left: 6% !important;
-
         padding-right: 6% !important;
     }
 
     #skills h2 {
         font-size: 2rem;
-
-        margin-bottom: 10px;
     }
 
     .skills-intro {
-        font-size: 16px;
+        font-size: 15px;
 
-        line-height: 1.6;
+        line-height: 1.7;
 
         margin-bottom: 25px;
     }
@@ -1068,15 +1071,9 @@ footer p {
         font-size: 23px;
     }
 
-    /* =====================================================
-       PROJECTS MOBILE
-       ===================================================== */
-
-    #projects {
-        padding-left: 6% !important;
-
-        padding-right: 6% !important;
-    }
+    /* -----------------------------------------------------
+       PROJECTS
+       ----------------------------------------------------- */
 
     .project-container {
         grid-template-columns: 1fr;
@@ -1086,8 +1083,6 @@ footer p {
 
     .project {
         padding: 20px;
-
-        border-radius: 15px;
     }
 
     .project h3 {
@@ -1100,69 +1095,57 @@ footer p {
         line-height: 1.7;
     }
 
-    /* =====================================================
-       ACHIEVEMENTS MOBILE
-       ===================================================== */
+    /* -----------------------------------------------------
+       ACHIEVEMENTS
+       ----------------------------------------------------- */
 
     #achievements {
         padding-left: 6% !important;
-
         padding-right: 6% !important;
     }
 
-    #achievements h2 {
-        font-size: 1.8rem;
-
-        margin-bottom: 20px;
+    .marquee {
+        padding: 12px 0;
     }
 
-    .marquee {
-        border-radius: 12px;
-
-        padding: 12px 0;
+    .marquee-content {
+        gap: 25px;
     }
 
     .marquee-content img {
         width: 150px;
-
         height: 100px;
     }
 
-    /* =====================================================
-       CONTACT MOBILE
-       ===================================================== */
-
-    #contact {
-        padding-left: 6% !important;
-
-        padding-right: 6% !important;
-
-        font-size: 17px;
+    .marquee-content p {
+        font-size: 14px;
     }
 
-    /* =====================================================
-       POPUP MOBILE
-       ===================================================== */
+    /* -----------------------------------------------------
+       POPUP
+       ----------------------------------------------------- */
 
     .popup-content {
         width: 95%;
+
+        max-width: 95%;
 
         padding: 15px;
     }
 
     .popup-content img {
-        width: 95vw;
+        width: 100%;
 
         max-width: 100%;
+
+        max-height: 80vh;
     }
 
     .close {
         width: 35px;
-
         height: 35px;
 
         top: -10px;
-
         right: -10px;
     }
 }
@@ -1173,52 +1156,42 @@ footer p {
 
 @media (max-width: 480px) {
 
-    /* HERO */
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
 
     .hero {
-        min-height: 0 !important;
-
-        height: auto !important;
-
         padding:
-            80px 15px 18px !important;
+            85px
+            15px
+            25px !important;
     }
 
     .profile {
         width: 125px;
-
         height: 125px;
     }
 
     .hero h1 {
         font-size: 1.7rem;
-
-        margin-top: 8px;
     }
 
     .hero h3 {
         font-size: 1.2rem;
-
-        margin: 5px 0;
     }
 
     .hero p {
         font-size: 14px;
 
-        line-height: 1.55;
-
-        margin-bottom: 12px;
+        line-height: 1.65;
     }
 
-    /* SECTIONS */
+    /* -----------------------------------------------------
+       SECTIONS
+       ----------------------------------------------------- */
 
     section {
-        padding:
-            25px 5% !important;
-
-        margin: 0 !important;
-
-        border: none !important;
+        padding: 35px 5% !important;
     }
 
     #about,
@@ -1226,32 +1199,29 @@ footer p {
     #projects,
     #achievements,
     #contact {
-        padding-top: 25px !important;
-
-        padding-bottom: 25px !important;
-
-        margin: 0 !important;
-
-        border: none !important;
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
     }
-
-    /* HEADINGS */
 
     section h2 {
         font-size: 1.8rem;
 
-        margin-bottom: 18px;
+        margin-bottom: 20px;
     }
 
-    /* ABOUT */
+    /* -----------------------------------------------------
+       ABOUT
+       ----------------------------------------------------- */
 
     #about p {
         font-size: 1rem;
 
-        line-height: 1.65;
+        line-height: 1.7;
     }
 
-    /* SKILLS */
+    /* -----------------------------------------------------
+       SKILLS
+       ----------------------------------------------------- */
 
     #skills h2 {
         font-size: 1.8rem;
@@ -1261,26 +1231,22 @@ footer p {
         font-size: 14px;
 
         line-height: 1.6;
-
-        margin-bottom: 20px;
     }
 
     .skill-category {
-        padding: 17px;
+        padding: 18px;
 
-        border-radius: 14px;
+        border-radius: 15px;
     }
 
     .skill-category h3 {
-        font-size: 17px;
-
-        margin-bottom: 13px;
+        font-size: 18px;
     }
 
     .skill-list {
         flex-direction: column;
 
-        gap: 7px;
+        gap: 8px;
     }
 
     .skill-item {
@@ -1289,51 +1255,315 @@ footer p {
         justify-content: flex-start;
 
         font-size: 14px;
-
-        padding: 8px 11px;
     }
 
-    /* PROJECTS */
+    /* -----------------------------------------------------
+       PROJECTS
+       ----------------------------------------------------- */
 
     .project {
-        padding: 17px;
-
-        border-radius: 14px;
+        padding: 18px;
     }
 
     .project h3 {
-        font-size: 19px;
+        font-size: 20px;
     }
 
     .project p {
         font-size: 14px;
-
-        line-height: 1.65;
     }
 
-    /* ACHIEVEMENTS */
-
-    #achievements h2 {
-        font-size: 1.7rem;
-    }
-
-    .marquee-content {
-        gap: 20px;
-    }
+    /* -----------------------------------------------------
+       ACHIEVEMENTS
+       ----------------------------------------------------- */
 
     .marquee-content img {
         width: 130px;
-
         height: 90px;
     }
 
     .marquee-content p {
         font-size: 13px;
     }
+}
 
-    /* CONTACT */
+/* =========================================================
+   ANDROID CHROME DESKTOP-SITE MODE
+   =========================================================
+
+   Important:
+   Chrome Desktop Site on Android may report a CSS
+   viewport around 980px.
+
+   Therefore max-width: 768px does not activate.
+
+   This rule detects touch devices and applies the
+   compact layout even when Desktop Site is enabled.
+
+   It does NOT affect normal desktop/laptop screens.
+   ========================================================= */
+
+@media (max-width: 1100px) and (pointer: coarse) and (hover: none) {
+
+    /* -----------------------------------------------------
+       GLOBAL
+       ----------------------------------------------------- */
+
+    html,
+    body,
+    #root {
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        overflow-x: hidden;
+    }
+
+    /* -----------------------------------------------------
+       NAVBAR
+       ----------------------------------------------------- */
+
+    .navbar {
+        width: 100%;
+
+        min-height: 55px;
+    }
+
+    .navbar-brand h2 {
+        font-size: 18px;
+    }
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero {
+        width: 100%;
+
+        min-height: 0 !important;
+        height: auto !important;
+
+        padding:
+            75px
+            25px
+            25px !important;
+
+        margin: 0 !important;
+
+        justify-content: center;
+
+        border: none !important;
+    }
+
+    .profile {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+
+        margin-top: 8px;
+    }
+
+    .hero h3 {
+        font-size: 1.4rem;
+
+        margin: 7px 0;
+    }
+
+    .hero p {
+        width: 100%;
+        max-width: 700px;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        margin-bottom: 18px;
+    }
+
+    /* -----------------------------------------------------
+       ALL SECTIONS
+       ----------------------------------------------------- */
+
+    section,
+    #about,
+    #skills,
+    #projects,
+    #achievements,
+    #contact {
+        width: 100%;
+
+        min-height: 0 !important;
+        height: auto !important;
+
+        padding:
+            35px
+            6% !important;
+
+        margin: 0 !important;
+
+        border: none !important;
+
+        border-top: none !important;
+        border-bottom: none !important;
+
+        outline: none !important;
+    }
+
+    /* -----------------------------------------------------
+       SECTION HEADINGS
+       ----------------------------------------------------- */
+
+    section h2 {
+        font-size: 2rem;
+
+        margin:
+            0
+            0
+            20px;
+    }
+
+    /* -----------------------------------------------------
+       ACHIEVEMENTS
+       ----------------------------------------------------- */
+
+    #achievements h2 {
+        font-size: 1.9rem;
+
+        margin-bottom: 20px;
+    }
+
+    .marquee {
+        width: 100%;
+
+        padding: 12px 0;
+    }
+
+    .marquee-content {
+        gap: 25px;
+    }
+
+    .marquee-content img {
+        width: 180px;
+        height: 120px;
+    }
+
+    .marquee-content p {
+        font-size: 14px;
+    }
+
+    /* -----------------------------------------------------
+       ABOUT
+       ----------------------------------------------------- */
+
+    #about p {
+        max-width: 800px;
+
+        font-size: 1.15rem;
+
+        line-height: 1.75;
+    }
+
+    /* -----------------------------------------------------
+       SKILLS
+       ----------------------------------------------------- */
+
+    .skills-intro {
+        font-size: 15px;
+
+        line-height: 1.6;
+
+        margin-bottom: 25px;
+    }
+
+    .skill-categories {
+        width: 100%;
+
+        max-width: 800px;
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .skill-category {
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+    .skill-category h3 {
+        font-size: 19px;
+
+        margin-bottom: 15px;
+    }
+
+    .skill-list {
+        gap: 8px;
+    }
+
+    .skill-item {
+        padding: 9px 12px;
+
+        font-size: 15px;
+    }
+
+    .skill-icon {
+        font-size: 23px;
+    }
+
+    /* -----------------------------------------------------
+       PROJECTS
+       ----------------------------------------------------- */
+
+    .project-container {
+        width: 100%;
+
+        max-width: 800px;
+
+        margin: 0 auto;
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .project {
+        padding: 20px;
+    }
+
+    .project h3 {
+        font-size: 22px;
+    }
+
+    .project p {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+    /* -----------------------------------------------------
+       CONTACT
+       ----------------------------------------------------- */
 
     #contact {
-        font-size: 16px;
+        text-align: center;
+    }
+
+    /* -----------------------------------------------------
+       FOOTER
+       ----------------------------------------------------- */
+
+    footer {
+        width: 100%;
+
+        padding: 18px;
+
+        margin: 0 !important;
+
+        border: none !important;
     }
 }
