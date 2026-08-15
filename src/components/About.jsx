@@ -4,9 +4,9 @@ function About() {
 
       <h2>About Me</h2>
 
-      <p><strong>I’m a Computer Science student and Full Stack Developer with a strong interest in building modern web applications.
-      I work with the MERN Stack and Java Full Stack technologies, including Spring Boot and SQL. I enjoy developing clean, efficient, 
-      and user-friendly applications while continuously learning new technologies.</strong></p>
+      <p><strong>I’m a Computer Science student and aspiring Full Stack Developer with hands-on experience in 
+        MERN Stack development and knowledge of Java. I enjoy building responsive web applications and continuously 
+        improving my development skills.</strong></p>
 
     </section>
   );

@@ -28,8 +28,8 @@ function Hero() {
 </h3>
 
       <p>
-        <strong>Passionate Full Stack Developer skilled in MERN Stack and Java Full Stack development. 
-          I build responsive, scalable, and user-friendly web applications.</strong>
+        <strong>Full Stack Developer skilled in MERN Stack and Java development. 
+          I build responsive and user-friendly web applications using modern technologies.</strong>
       </p>
       
       <Button variant="primary" href="/Wilson_Resume.pdf"  className="btn" download>
