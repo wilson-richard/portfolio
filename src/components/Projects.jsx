@@ -24,7 +24,7 @@ function Projects() {
           </p>
 
           <div className="project-btn">
-            <Button variant="primary"
+            <Button variant="success"
               href="https://wilson-richard-coffeeshop.vercel.app/"
               target="_blank">
               View Project
@@ -46,7 +46,7 @@ function Projects() {
           </p>
 
           <div className="project-btn">
-            <Button variant="primary"
+            <Button variant="success"
             href="https://wilson-richard-event-management.vercel.app"
             target="_blank">
               View Project

@@ -15,11 +15,10 @@
     -ms-user-select: none;
 }
 
-
 html {
     margin: 0;
     padding: 0;
-    background: #0f172a;
+    background: #050505;
     scroll-behavior: smooth;
 }
 
@@ -29,7 +28,7 @@ body {
     width: 100%;
     min-height: 100%;
     font-family: 'Poppins', sans-serif;
-    background: #0f172a;
+    background: #050505;
     color: #ffffff;
     overflow-x: hidden;
 }
@@ -39,7 +38,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background: #0f172a;
+    background: #050505;
 }
 
 /* Remove unwanted horizontal lines */
@@ -66,25 +65,6 @@ div {
    NAVBAR
    ========================================================= */
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    min-height: 60px;
-
-    z-index: 9999;
-
-    background: rgba(15, 23, 42, 0.92) !important;
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.35);
-
-    border: none !important;
-}
 
 .navbar-brand {
     margin: 0;
@@ -92,7 +72,7 @@ div {
 }
 
 .navbar-brand h2 {
-    color: #fbfaff;
+    color: #f5f5f5;
     font-weight: 700;
     margin: 0;
     font-size: 22px;
@@ -106,9 +86,8 @@ div {
 }
 
 .nav-link:hover {
-    color: #38bdf8 !important;
+    color: #22c55e !important;
 }
-
 /* =========================================================
    HERO
    ========================================================= */
@@ -116,15 +95,10 @@ div {
 .hero {
     width: 100%;
 
-    /*
-       Do NOT use 100vh here.
-       It creates the large empty space on mobile/Desktop Site.
-    */
     min-height: 0 !important;
     height: auto !important;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -137,21 +111,88 @@ div {
     background:
         radial-gradient(
             circle at top,
-            #312e81 0%,
-            #1e1b4b 35%,
-            #0f172a 72%
+            #171717 0%,
+            #0d0d0d 35%,
+            #050505 72%
         );
 
     border: none !important;
 }
 
 /* =========================================================
-   PROFILE IMAGE
+   DESKTOP - LEFT TEXT / RIGHT IMAGE
    ========================================================= */
 
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+    margin: 0 auto;
+}
+
+/* LEFT TEXT */
+
+.hero-text {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    margin: 12px 0 0;
+
+    color: #ffffff;
+}
+
+.hero h3 {
+    color: #22c55e;
+
+    font-size: 2rem;
+    font-weight: 600;
+
+    margin: 10px 0;
+}
+
+.hero p {
+    width: 700px;
+    max-width: 100%;
+
+    color: #bdbdbd;
+
+    line-height: 1.8;
+
+    font-size: 20px;
+
+    margin: 0 0 25px;
+}
+
+/* RIGHT IMAGE */
+
+.hero-image {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
 .profile {
-    width: 220px;
-    height: 220px;
+    width: 300px;
+    height: 300px;
 
     object-fit: contain;
 
@@ -166,126 +207,25 @@ div {
         black 80%,
         transparent 100%
     );
-
-    transition: transform 0.4s ease;
 }
 
+/* NO PROFILE HOVER */
+
+.profile,
 .profile:hover {
-    transform: scale(1.05);
+    transform: none !important;
+    transition: none !important;
 }
-
-/* =========================================================
-   HERO TEXT
-   ========================================================= */
-
-.hero h1 {
-    font-size: 2.4rem;
-    font-weight: 700;
-
-    margin: 12px 0 0;
-
-    color: #e3e7e9;
-}
-
-.hero h3 {
-    color: #38bdf8;
-
-    font-size: 2rem;
-    font-weight: 600;
-
-    margin: 10px 0;
-}
-
-.hero p {
-    width: 700px;
-    max-width: 90%;
-
-    color: #d1d5db;
-
-    line-height: 1.8;
-    font-size: 20px;
-
-    margin: 0 0 25px;
-}
-
-/* =========================================================
-   BUTTON
-   ========================================================= */
-
-.btn {
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-4px);
-    color: #ffffff;
-
-    box-shadow:
-        0 15px 30px rgba(103, 148, 220, 0.4);
-}
-
-/* =========================================================
-   COMMON SECTION
-   ========================================================= */
-
-section {
-    width: 100%;
-
-    padding: 55px 10%;
-
-    margin: 0 !important;
-
-    background: #0f172a;
-
-    border: none !important;
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-
-    outline: none !important;
-}
-
-/* =========================================================
-   SECTION HEADING
-   ========================================================= */
-
-section h2 {
-    text-align: center;
-
-    font-size: 2.4rem;
-    font-weight: 600;
-
-    color: #ededef;
-
-    margin: 0 0 30px;
-
-    position: relative;
-}
-
-section h2::after {
-    content: "";
-
-    display: block;
-
-    width: 70px;
-    height: 4px;
-
-    margin: 10px auto 0;
-
-    background: #38bdf8;
-
-    border-radius: 20px;
-}
-
 /* =========================================================
    ABOUT
    ========================================================= */
 
 #about {
+    text-align: center;
+    
     width: 100%;
 
-    background: #0f172a;
+    background: #050505;
 
     padding: 55px 10%;
 
@@ -295,7 +235,7 @@ section h2::after {
 }
 
 #about p {
-    max-width: 850px;
+    max-width: 950px;
 
     margin: 0 auto;
 
@@ -303,7 +243,7 @@ section h2::after {
 
     line-height: 1.8;
 
-    color: #d1d5db;
+    color: #bdbdbd;
 
     font-size: 1.5rem;
 }
@@ -315,11 +255,11 @@ section h2::after {
 #skills {
     width: 100%;
 
-    background: #0f172a;
+    background: #050505;
 
     text-align: center;
 
-    color: #d1d5db;
+    color: #bdbdbd;
 
     padding: 55px 8%;
 
@@ -331,7 +271,7 @@ section h2::after {
 #skills h2 {
     font-size: 2.5rem;
 
-    color: #e3e7e9;
+    color: #f1f1f1;
 
     margin-bottom: 15px;
 }
@@ -341,7 +281,7 @@ section h2::after {
 
     margin: 0 auto 35px;
 
-    color: #cbd5e1;
+    color: #b8b8b8;
 
     font-size: 18px;
 
@@ -372,7 +312,7 @@ section h2::after {
 .skill-category {
     min-width: 0;
 
-    background: #1e293b;
+    background: #121212;
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -394,11 +334,11 @@ section h2::after {
     transform: translateY(-6px);
 
     box-shadow:
-        0 15px 35px rgba(59, 130, 246, 0.25);
+        0 15px 35px rgba(34, 197, 94, 0.16);
 }
 
 .skill-category h3 {
-    color: #38bdf8;
+    color: #22c55e;
 
     font-size: 21px;
 
@@ -429,7 +369,7 @@ section h2::after {
 
     gap: 10px;
 
-    background: #0f172a;
+    background: #050505;
 
     border:
         1px solid rgba(255, 255, 255, 0.08);
@@ -440,7 +380,7 @@ section h2::after {
 
     font-size: 16px;
 
-    color: #e2e8f0;
+    color: #e5e5e5;
 
     transition:
         transform 0.3s ease,
@@ -451,9 +391,9 @@ section h2::after {
 .skill-item:hover {
     transform: translateY(-3px);
 
-    border-color: #38bdf8;
+    border-color: #22c55e;
 
-    background: #172554;
+    background: #151515;
 }
 
 .skill-icon {
@@ -472,7 +412,7 @@ section h2::after {
 #projects {
     width: 100%;
 
-    background: #0f172a;
+    background: #050505;
 
     padding: 55px 10%;
 
@@ -514,8 +454,8 @@ section h2::after {
     background:
         linear-gradient(
             135deg,
-            #1e293b,
-            #111827
+            #121212,
+            #0b0b0b
         );
 
     padding: 30px;
@@ -541,11 +481,11 @@ section h2::after {
     transform: translateY(-8px);
 
     box-shadow:
-        0 20px 45px rgba(59, 130, 246, 0.35);
+        0 20px 45px rgba(34, 197, 94, 0.18);
 }
 
 .project h3 {
-    color: #38bdf8;
+    color: #22c55e;
 
     margin: 0 0 15px;
 
@@ -553,7 +493,7 @@ section h2::after {
 }
 
 .project p {
-    color: #d1d5db;
+    color: #bdbdbd;
 
     line-height: 1.8;
 
@@ -572,14 +512,6 @@ section h2::after {
     padding-top: 18px;
 }
 
-.project-btn .btn {
-    padding: 10px 24px;
-
-    font-size: 16px;
-
-    border-radius: 8px;
-}
-
 /* =========================================================
    ACHIEVEMENTS
    ========================================================= */
@@ -587,7 +519,7 @@ section h2::after {
 #achievements {
     width: 100%;
 
-    background: #0f172a;
+    background: #050505;
 
     padding: 55px 10%;
 
@@ -620,7 +552,7 @@ section h2::after {
 
     overflow: hidden;
 
-    background: #1e293b;
+    background: #121212;
 
     border-radius: 16px;
 
@@ -672,16 +604,16 @@ section h2::after {
 .marquee-content img:hover {
     transform: scale(1.08);
 
-    border-color: #38bdf8;
+    border-color: #22c55e;
 
     box-shadow:
-        0 12px 30px rgba(56, 189, 248, 0.35);
+        0 12px 30px rgba(34, 197, 94, 0.20);
 }
 
 .marquee-content p {
     margin: 8px 0 0;
 
-    color: #d1d5db;
+    color: #bdbdbd;
 
     font-size: 16px;
 
@@ -710,11 +642,11 @@ section h2::after {
 #contact {
     width: 100%;
 
-    background: #0f172a;
+    background: #050505;
 
     text-align: center;
 
-    color: #d1d5db;
+    color: #bdbdbd;
 
     font-size: 20px;
 
@@ -742,9 +674,9 @@ section h2::after {
 footer {
     width: 100%;
 
-    background: #111827;
+    background: #0b0b0b;
 
-    color: #94a3b8;
+    color: #8f8f8f;
 
     text-align: center;
 
@@ -794,7 +726,7 @@ footer p {
     max-width: 95vw;
     max-height: 90vh;
 
-    background: #1e293b;
+    background: #121212;
 
     padding: 20px;
 
@@ -877,56 +809,46 @@ footer p {
         opacity: 1;
     }
 }
-
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
-
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0f172a;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #8787f8;
-
-    border-radius: 20px;
-}
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
 @media (max-width: 992px) {
 
-    section {
-        padding: 50px 7%;
-    }
-
-    #about,
-    #skills,
-    #projects,
-    #achievements,
-    #contact {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-
-    .skill-categories {
+    .hero-content {
         grid-template-columns: 1fr;
 
-        max-width: 800px;
+        gap: 10px;
+
+        text-align: center;
     }
 
-    .project-container {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+    .hero-image {
+        order: 1;
+    }
+
+    .hero-text {
+        order: 2;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .profile {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero h3 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        width: 700px;
+        max-width: 90%;
     }
 }
-
 /* =========================================================
    MOBILE
    ========================================================= */
@@ -1571,4 +1493,12 @@ footer p {
 
         border: none !important;
     }
+}
+
+/* Profile image — no hover effect */
+
+.profile,
+.profile:hover {
+    transform: none !important;
+    transition: none !important;
 }
