@@ -29,7 +29,7 @@ function Hero() {
 
           <p>
             <strong>
-              Full Stack Developer with hands-on experience in MERN Stack development and knowledge of Java, SQL, and modern web technologies. I build responsive and user-friendly web applications with a focus on clean and practical solutions.
+              Full Stack Developer with hands-on experience in MERN Stack development and knowledge of Java, PostgreSQL, and modern web technologies. I build responsive and user-friendly web applications with a focus on clean and practical solutions.
             </strong>
           </p>
 

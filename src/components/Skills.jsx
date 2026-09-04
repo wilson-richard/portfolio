@@ -15,7 +15,7 @@ import {
   SiJavascript,
   SiExpress,
   SiMongodb,
-  SiMysql,
+  SiPostgresql,
   SiInsomnia,
   SiVercel,
 } from "react-icons/si";
@@ -52,7 +52,7 @@ function Skills() {
     {
       title: "Database",
       skills: [
-        { name: "MySQL", icon: <SiMysql color="#00758F" /> },
+        { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
         { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
       ],
     },
