@@ -15,6 +15,7 @@ import {
   SiJavascript,
   SiExpress,
   SiMongodb,
+  SiMysql,
   SiPostgresql,
   SiInsomnia,
   SiVercel,
@@ -53,7 +54,9 @@ function Skills() {
       title: "Database",
       skills: [
         { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
+        { name: "MySQL", icon: <SiMysql color="#a0cff3" /> },
         { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
+        
       ],
     },
 
