@@ -11,7 +11,7 @@ export default function NavigationBar() {
     >
       <Container>
         <Navbar.Brand href="#">
-          <h2>WILSON</h2>
+          <h2>Merry Christmas 🎁</h2>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="navbar-nav" />
